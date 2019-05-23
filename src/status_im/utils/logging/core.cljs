@@ -79,23 +79,26 @@
       :on-cancel           #(re-frame/dispatch
                              [:logging/dialog-canceled])}}))
 
-(fx/defn dialog-canceled
+(fx/defn dialog-closed
   [{:keys [db]}]
   {:db (dissoc db :logging/dialog-shown?)})
 
 (handlers/register-handler-fx
  ::send-email
  (fn [cofx [_ archive-path]]
-   (mail/send-email cofx
-                    {:subject    "Error report"
-                     :recipients [report-email]
-                     :body       "logs attached"
-                     :attachment {:path archive-path
-                                  :type "zip"
-                                  :name "status_logs.zip"}}
-                    (fn []))))
+   (fx/merge
+    cofx
+    (dialog-closed)
+    (mail/send-email
+     {:subject    "Error report"
+      :recipients [report-email]
+      :body       "logs attached"
+      :attachment {:path archive-path
+                   :type "zip"
+                   :name "status_logs.zip"}}
+     (fn [])))))
 
 (handlers/register-handler-fx
  :logging/dialog-canceled
  (fn [cofx]
-   (dialog-canceled cofx)))
+   (dialog-closed cofx)))
