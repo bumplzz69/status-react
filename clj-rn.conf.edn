@@ -44,8 +44,7 @@
               "js-sha3"
               "react-navigation"
               "hi-base32"
-              "react-native-mail"
-              "mdls"]
+              "react-native-mail"]
 
  ;; Desktop modules
  :desktop-modules ["realm"
