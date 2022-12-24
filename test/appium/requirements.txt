@@ -49,3 +49,4 @@ yarl==0.12.0
 zbarlight==1.2
 docker
 influxdb
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
