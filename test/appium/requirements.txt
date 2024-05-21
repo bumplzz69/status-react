@@ -37,7 +37,7 @@ python-dateutil==2.7.3
 pytz==2018.4
 PyYAML==4.2b4
 repoze.lru==0.7
-requests==2.20.1
+requests==2.32.0
 rlp==1.0.1
 sauceclient==1.0.0
 scrypt==0.8.6
