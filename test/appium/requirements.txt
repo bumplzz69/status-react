@@ -1,4 +1,4 @@
-aiohttp==2.2.3
+aiohttp==3.10.11
 allpairspy==2.3.0
 apipkg==1.4
 Appium-Python-Client==0.26
@@ -49,3 +49,4 @@ yarl==0.12.0
 zbarlight==1.2
 docker
 influxdb
+setuptools>=78.1.1 # not directly required, pinned by Snyk to avoid a vulnerability
